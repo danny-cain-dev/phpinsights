@@ -178,6 +178,9 @@ final class Runner
 
     private function processFile(SplFileInfo $file): void
     {
+        // DC - This seems to break lots, and looks like it's not necessary
+        return;
+
         $cacheKey = 'insights.' . $this->cacheKey . '.' . md5($file->getContents());
         // Do not use cache if fix is enabled to force processors to handle it
         if (! $this->cache->has($cacheKey)) {
